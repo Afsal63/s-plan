@@ -1,0 +1,1550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FAANG Interview Prep — 90-Day Roadmap</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0d0f14;
+    --bg2: #13161d;
+    --bg3: #1a1e28;
+    --bg4: #222736;
+    --border: rgba(255,255,255,0.07);
+    --border2: rgba(255,255,255,0.12);
+    --text: #e8eaf0;
+    --text2: #8b90a0;
+    --text3: #555b6e;
+    --accent: #6c63ff;
+    --accent-glow: rgba(108,99,255,0.15);
+    --accent2: #00d4aa;
+    --accent3: #ff6b6b;
+    --amber: #f5a623;
+    --pink: #e879f9;
+    --m1: #378ADD;
+    --m1-bg: rgba(55,138,221,0.1);
+    --m2: #00d4aa;
+    --m2-bg: rgba(0,212,170,0.1);
+    --m3: #f5a623;
+    --m3-bg: rgba(245,166,35,0.1);
+    --tag-dsa-bg: rgba(108,99,255,0.15);
+    --tag-dsa: #a5a0ff;
+    --tag-sys-bg: rgba(0,212,170,0.12);
+    --tag-sys: #00d4aa;
+    --tag-fs-bg: rgba(232,121,249,0.12);
+    --tag-fs: #e879f9;
+    --tag-beh-bg: rgba(245,166,35,0.12);
+    --tag-beh: #f5a623;
+    --tag-rest-bg: rgba(139,144,160,0.1);
+    --tag-rest: #8b90a0;
+    --tag-mock-bg: rgba(255,107,107,0.12);
+    --tag-mock: #ff6b6b;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(13,15,20,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 56px;
+  }
+  .nav-logo {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 17px;
+    color: var(--text);
+    letter-spacing: -0.02em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .nav-logo span {
+    color: var(--accent);
+  }
+  .nav-links {
+    display: flex;
+    gap: 2px;
+  }
+  .nav-links a {
+    color: var(--text2);
+    text-decoration: none;
+    font-size: 13px;
+    padding: 6px 12px;
+    border-radius: 6px;
+    transition: all 0.15s;
+    font-weight: 500;
+  }
+  .nav-links a:hover { background: var(--bg3); color: var(--text); }
+  .nav-badge {
+    background: var(--accent);
+    color: white;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 20px;
+    letter-spacing: 0.02em;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    padding: 80px 2rem 64px;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--accent-glow);
+    border: 1px solid rgba(108,99,255,0.25);
+    color: var(--tag-dsa);
+    font-size: 12px;
+    font-weight: 500;
+    padding: 5px 14px;
+    border-radius: 20px;
+    margin-bottom: 24px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  .hero h1 {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: clamp(36px, 6vw, 64px);
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    color: var(--text);
+    margin-bottom: 20px;
+  }
+  .hero h1 em {
+    font-style: normal;
+    color: var(--accent);
+  }
+  .hero-sub {
+    font-size: 17px;
+    color: var(--text2);
+    max-width: 540px;
+    margin: 0 auto 40px;
+    line-height: 1.7;
+    font-weight: 300;
+  }
+  .hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+  .hstat {
+    text-align: center;
+  }
+  .hstat-val {
+    font-family: 'Syne', sans-serif;
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--text);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .hstat-val span { color: var(--accent); }
+  .hstat-lbl {
+    font-size: 12px;
+    color: var(--text3);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .hstat-sep {
+    width: 1px;
+    background: var(--border);
+    align-self: stretch;
+  }
+
+  /* ── SECTION WRAPPER ── */
+  .section-wrap {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  /* ── OVERVIEW PILLARS ── */
+  .pillars {
+    padding: 48px 0;
+    border-top: 1px solid var(--border);
+  }
+  .section-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text3);
+    font-weight: 600;
+    margin-bottom: 24px;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .pillar-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 12px;
+  }
+  .pillar {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    transition: border-color 0.2s, background 0.2s;
+    cursor: default;
+  }
+  .pillar:hover {
+    border-color: var(--border2);
+    background: var(--bg3);
+  }
+  .pillar-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 17px;
+    margin-bottom: 12px;
+  }
+  .pi-dsa { background: var(--tag-dsa-bg); }
+  .pi-sys { background: var(--tag-sys-bg); }
+  .pi-fs  { background: var(--tag-fs-bg); }
+  .pi-beh { background: var(--tag-beh-bg); }
+  .pi-cs  { background: var(--tag-mock-bg); }
+  .pi-mock { background: rgba(139,144,160,0.08); }
+  .pillar-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 6px;
+  }
+  .pillar-desc {
+    font-size: 12.5px;
+    color: var(--text2);
+    line-height: 1.6;
+  }
+  .pillar-bar {
+    margin-top: 14px;
+    height: 3px;
+    background: var(--border);
+    border-radius: 2px;
+  }
+  .pillar-fill { height: 100%; border-radius: 2px; }
+
+  /* ── PHASE TABS ── */
+  .phase-section {
+    padding: 48px 0;
+    border-top: 1px solid var(--border);
+  }
+  .phase-tabs {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 28px;
+    flex-wrap: wrap;
+  }
+  .ptab {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 18px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--text2);
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.15s;
+    font-family: 'Inter', sans-serif;
+  }
+  .ptab:hover { border-color: var(--border2); color: var(--text); background: var(--bg3); }
+  .ptab.active { border-color: var(--accent); background: var(--accent-glow); color: var(--text); }
+  .ptab-dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .phase-pane { display: none; }
+  .phase-pane.active { display: block; }
+
+  /* ── PHASE HEADER ── */
+  .phase-header {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 20px;
+    align-items: start;
+    margin-bottom: 28px;
+  }
+  .phase-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 26px;
+    font-weight: 800;
+    color: var(--text);
+    letter-spacing: -0.02em;
+    margin-bottom: 6px;
+  }
+  .phase-subtitle {
+    font-size: 14px;
+    color: var(--text2);
+    max-width: 520px;
+    line-height: 1.6;
+  }
+  .phase-metrics {
+    display: flex;
+    gap: 12px;
+  }
+  .pmet {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 12px 16px;
+    text-align: center;
+    min-width: 72px;
+  }
+  .pmet-val {
+    font-family: 'Syne', sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--text);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .pmet-lbl {
+    font-size: 10px;
+    color: var(--text3);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  /* ── WEEK SWITCHER ── */
+  .week-tabs {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+  }
+  .wtab {
+    padding: 5px 12px;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--text3);
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.15s;
+    font-family: 'Inter', sans-serif;
+  }
+  .wtab:hover { color: var(--text2); border-color: var(--border2); }
+  .wtab.active { background: var(--bg3); color: var(--text); border-color: var(--border2); }
+
+  .week-pane { display: none; }
+  .week-pane.active { display: block; }
+
+  /* ── SCHEDULE GRID ── */
+  .sched {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .sblock {
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    gap: 0;
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: border-color 0.15s;
+  }
+  .sblock:hover { border-color: var(--border2); }
+
+  .sblock-time {
+    background: var(--bg3);
+    border-right: 1px solid var(--border);
+    padding: 14px 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  .stime {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--text3);
+    font-weight: 500;
+    line-height: 1.4;
+  }
+
+  .sblock-body {
+    padding: 14px 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .sblock-title {
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+  .sblock-desc {
+    font-size: 12.5px;
+    color: var(--text2);
+    line-height: 1.55;
+  }
+  .stag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 500;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-top: 8px;
+    font-family: 'JetBrains Mono', monospace;
+    letter-spacing: 0.02em;
+  }
+  .t-dsa { background: var(--tag-dsa-bg); color: var(--tag-dsa); }
+  .t-sys { background: var(--tag-sys-bg); color: var(--tag-sys); }
+  .t-fs  { background: var(--tag-fs-bg);  color: var(--tag-fs);  }
+  .t-beh { background: var(--tag-beh-bg); color: var(--tag-beh); }
+  .t-rest{ background: var(--tag-rest-bg);color: var(--tag-rest);}
+  .t-mock{ background: var(--tag-mock-bg);color: var(--tag-mock);}
+
+  .sblock-accent-m1 { border-left: 3px solid var(--m1); }
+  .sblock-accent-m2 { border-left: 3px solid var(--m2); }
+  .sblock-accent-m3 { border-left: 3px solid var(--m3); }
+
+  /* ── CALLOUT ── */
+  .callout {
+    margin-top: 16px;
+    padding: 14px 16px;
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    border-left: 3px solid var(--accent);
+    font-size: 13px;
+    color: var(--text2);
+    line-height: 1.6;
+  }
+  .callout strong { color: var(--text); font-weight: 600; }
+
+  /* ── RESOURCES ── */
+  .resources-section {
+    padding: 48px 0;
+    border-top: 1px solid var(--border);
+  }
+  .resource-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .res-row {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 0;
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: border-color 0.15s;
+  }
+  .res-row:hover { border-color: var(--border2); }
+  .res-cat {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 8px;
+    background: var(--bg3);
+    border-right: 1px solid var(--border);
+    font-size: 10px;
+    font-weight: 600;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-family: 'JetBrains Mono', monospace;
+    line-height: 1.3;
+  }
+  .res-body { padding: 14px 16px; }
+  .res-title { font-size: 13.5px; font-weight: 600; color: var(--text); margin-bottom: 3px; }
+  .res-sub { font-size: 12px; color: var(--text2); line-height: 1.5; }
+
+  /* ── TIPS ── */
+  .tips-section {
+    padding: 48px 0;
+    border-top: 1px solid var(--border);
+  }
+  .tips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 12px;
+  }
+  .tip-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    transition: border-color 0.2s;
+  }
+  .tip-card:hover { border-color: var(--border2); }
+  .tip-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 42px;
+    font-weight: 800;
+    color: var(--bg4);
+    line-height: 1;
+    margin-bottom: 10px;
+  }
+  .tip-title { font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 6px; }
+  .tip-body { font-size: 13px; color: var(--text2); line-height: 1.65; }
+
+  /* ── FOOTER ── */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 40px 2rem;
+    text-align: center;
+  }
+  .footer-inner { max-width: 960px; margin: 0 auto; }
+  .footer-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--text);
+    margin-bottom: 8px;
+  }
+  .footer-sub { font-size: 14px; color: var(--text2); margin-bottom: 24px; }
+  .footer-tags {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 32px;
+  }
+  .footer-tag {
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 500;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .footer-note {
+    font-size: 12px;
+    color: var(--text3);
+  }
+
+  /* ── PROGRESS TRACKER ── */
+  .tracker {
+    padding: 48px 0;
+    border-top: 1px solid var(--border);
+  }
+  .tracker-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .tracker-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--text);
+    letter-spacing: -0.02em;
+  }
+  .tracker-controls { display: flex; gap: 6px; }
+  .tctrl {
+    padding: 6px 12px;
+    font-size: 12px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    color: var(--text2);
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .tctrl:hover { background: var(--bg3); color: var(--text); }
+  .tctrl.primary { background: var(--accent); border-color: var(--accent); color: white; }
+  .weeks-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+  }
+  .week-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px;
+    cursor: pointer;
+    transition: all 0.2s;
+    position: relative;
+  }
+  .week-card:hover { border-color: var(--border2); background: var(--bg3); }
+  .week-card.done { border-color: rgba(0,212,170,0.3); background: rgba(0,212,170,0.04); }
+  .week-card.done .wc-num { color: var(--m2); }
+  .week-card.current { border-color: rgba(108,99,255,0.4); background: var(--accent-glow); }
+  .wc-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+  .wc-num { font-size: 11px; font-weight: 600; color: var(--text3); font-family: 'JetBrains Mono', monospace; }
+  .wc-check { width: 18px; height: 18px; border-radius: 50%; border: 1.5px solid var(--border2); display: flex; align-items: center; justify-content: center; font-size: 10px; color: transparent; transition: all 0.15s; }
+  .week-card.done .wc-check { background: var(--m2); border-color: var(--m2); color: white; }
+  .wc-title { font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
+  .wc-sub { font-size: 11.5px; color: var(--text2); line-height: 1.4; }
+  .wc-phase { position: absolute; top: 0; left: 0; right: 0; height: 3px; border-radius: 10px 10px 0 0; }
+
+  @media (max-width: 640px) {
+    nav { padding: 0 1rem; }
+    .hero { padding: 48px 1rem 40px; }
+    .section-wrap { padding: 0 1rem; }
+    .phase-header { grid-template-columns: 1fr; }
+    .phase-metrics { flex-wrap: wrap; }
+    .sblock { grid-template-columns: 72px 1fr; }
+    .weeks-grid { grid-template-columns: repeat(2, 1fr); }
+    .hero-stats { gap: 20px; }
+    .hstat-sep { display: none; }
+    nav .nav-links { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <span>&#9670;</span> FAANG Prep
+  </div>
+  <div class="nav-links">
+    <a href="#overview">Overview</a>
+    <a href="#schedule">Schedule</a>
+    <a href="#resources">Resources</a>
+    <a href="#tips">Tips</a>
+    <a href="#tracker">Tracker</a>
+  </div>
+  <div class="nav-badge">90 days</div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-eyebrow">&#9670; Full Stack Developer &rarr; FAANG / MNC</div>
+  <h1>Crack your<br><em>dream company</em><br>in 90 days</h1>
+  <p class="hero-sub">A complete interview preparation guide built for full stack developers with 4+ years of experience. Every hour, every topic, every week — mapped out.</p>
+  <div class="hero-stats">
+    <div class="hstat">
+      <div class="hstat-val">250<span>+</span></div>
+      <div class="hstat-lbl">LC problems</div>
+    </div>
+    <div class="hstat-sep"></div>
+    <div class="hstat">
+      <div class="hstat-val">10<span>+</span></div>
+      <div class="hstat-lbl">Systems designed</div>
+    </div>
+    <div class="hstat-sep"></div>
+    <div class="hstat">
+      <div class="hstat-val">15<span>+</span></div>
+      <div class="hstat-lbl">STAR stories</div>
+    </div>
+    <div class="hstat-sep"></div>
+    <div class="hstat">
+      <div class="hstat-val">3<span>×</span></div>
+      <div class="hstat-lbl">Mock/week M3</div>
+    </div>
+  </div>
+</div>
+
+<!-- OVERVIEW PILLARS -->
+<div id="overview" class="section-wrap">
+  <div class="pillars">
+    <div class="section-label">// What you'll master</div>
+    <div class="pillar-grid">
+      <div class="pillar">
+        <div class="pillar-icon pi-dsa">&#128196;</div>
+        <div class="pillar-name">DSA & Problem Solving</div>
+        <div class="pillar-desc">Arrays, Trees, Graphs, DP, Greedy, Sliding window, Two pointers, Backtracking</div>
+        <div class="pillar-bar"><div class="pillar-fill" style="width:100%;background:var(--tag-dsa)"></div></div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon pi-sys">&#128268;</div>
+        <div class="pillar-name">System Design</div>
+        <div class="pillar-desc">HLD, LLD, Scalability, Caching, DB design, Microservices, CAP theorem</div>
+        <div class="pillar-bar"><div class="pillar-fill" style="width:100%;background:var(--tag-sys)"></div></div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon pi-fs">&#128187;</div>
+        <div class="pillar-name">Full Stack Depth</div>
+        <div class="pillar-desc">React internals, Node.js event loop, Auth, GraphQL, Performance, Testing</div>
+        <div class="pillar-bar"><div class="pillar-fill" style="width:100%;background:var(--tag-fs)"></div></div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon pi-beh">&#127775;</div>
+        <div class="pillar-name">Behavioural / Leadership</div>
+        <div class="pillar-desc">STAR stories, Amazon LPs, Conflict resolution, Ownership, Impact metrics</div>
+        <div class="pillar-bar"><div class="pillar-fill" style="width:100%;background:var(--tag-beh)"></div></div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon pi-cs">&#9881;</div>
+        <div class="pillar-name">CS Fundamentals</div>
+        <div class="pillar-desc">OS, Networks, DBMS, SQL, Concurrency, Memory management, TCP/IP</div>
+        <div class="pillar-bar"><div class="pillar-fill" style="width:100%;background:var(--tag-mock)"></div></div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon pi-mock">&#127919;</div>
+        <div class="pillar-name">Mock Interviews</div>
+        <div class="pillar-desc">Pramp, Interviewing.io, Peer mocks, Timed LeetCode, System design walkthroughs</div>
+        <div class="pillar-bar"><div class="pillar-fill" style="width:100%;background:var(--text3)"></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SCHEDULE -->
+<div id="schedule" class="section-wrap">
+  <div class="phase-section">
+    <div class="section-label">// Daily schedule — all 3 months</div>
+
+    <div class="phase-tabs">
+      <button class="ptab active" onclick="showPhase('m1')">
+        <div class="ptab-dot" style="background:var(--m1)"></div>
+        Month 1 — Foundation
+      </button>
+      <button class="ptab" onclick="showPhase('m2')">
+        <div class="ptab-dot" style="background:var(--m2)"></div>
+        Month 2 — Deep Dive
+      </button>
+      <button class="ptab" onclick="showPhase('m3')">
+        <div class="ptab-dot" style="background:var(--m3)"></div>
+        Month 3 — Crack It
+      </button>
+    </div>
+
+    <!-- MONTH 1 -->
+    <div id="m1" class="phase-pane active">
+      <div class="phase-header">
+        <div>
+          <div class="phase-title">Build the foundation</div>
+          <div class="phase-subtitle">Weeks 1–4. DSA patterns + CS fundamentals. Goal: 100 problems solved, OS/Networks/DBMS locked in, 10 STAR stories banked.</div>
+        </div>
+        <div class="phase-metrics">
+          <div class="pmet"><div class="pmet-val" style="color:var(--m1)">4hr</div><div class="pmet-lbl">Weekday</div></div>
+          <div class="pmet"><div class="pmet-val" style="color:var(--m1)">6hr</div><div class="pmet-lbl">Weekend</div></div>
+          <div class="pmet"><div class="pmet-val" style="color:var(--m1)">100</div><div class="pmet-lbl">LC target</div></div>
+        </div>
+      </div>
+
+      <div class="week-tabs">
+        <button class="wtab active" onclick="showWeek('m1','wd')">Weekday schedule</button>
+        <button class="wtab" onclick="showWeek('m1','we')">Weekend schedule</button>
+        <button class="wtab" onclick="showWeek('m1','w1')">Week 1 topics</button>
+        <button class="wtab" onclick="showWeek('m1','w23')">Weeks 2–3 topics</button>
+        <button class="wtab" onclick="showWeek('m1','w4')">Week 4 topics</button>
+      </div>
+
+      <div id="m1-wd" class="week-pane active">
+        <div class="sched">
+          <div class="sblock sblock-accent-m1">
+            <div class="sblock-time"><span class="stime">6:00<br>6:30</span></div>
+            <div class="sblock-body">
+              <div class="sblock-title">Morning warm-up — review yesterday</div>
+              <div class="sblock-desc">Re-read one solved problem from yesterday. Trace through the algorithm mentally. No new problems yet — let yesterday's patterns consolidate.</div>
+              <span class="stag t-dsa">DSA review</span>
+            </div>
+          </div>
+          <div class="sblock sblock-accent-m1">
+            <div class="sblock-time"><span class="stime">6:30<br>8:00</span></div>
+            <div class="sblock-body">
+              <div class="sblock-title">LeetCode block — 2 problems</div>
+              <div class="sblock-desc">1 easy (10 min max) + 1 medium (25–30 min). If stuck at 20 min, peek at hints only. After solving, read the top 2 discussion solutions for alternate approaches.</div>
+              <span class="stag t-dsa">DSA</span>
+            </div>
+          </div>
+          <div class="sblock">
+            <div class="sblock-time"><span class="stime">9:00<br>6:00pm</span></div>
+            <div class="sblock-body">
+              <div class="sblock-title">Regular work</div>
+              <div class="sblock-desc">Stay sharp at your job. Actively note any scaling challenges, architectural decisions, or team conflicts — these become your STAR stories.</div>
+              <span class="stag t-rest">Work</span>
+            </div>
+          </div>
+          <div class="sblock sblock-accent-m1">
+            <div class="sblock-time"><span class="stime">7:00<br>8:00 PM</span></div>
+            <div class="sblock-body">
+              <div class="sblock-title">CS fundamentals — rotate daily</div>
+              <div class="sblock-desc"><strong>Mon/Thu:</strong> OS (process, threads, deadlock, virtual memory). <strong>Tue/Fri:</strong> Networks (HTTP/2, TCP, DNS, TLS). <strong>Wed:</strong> DBMS (indexes, ACID, transactions, SQL window functions).</div>
+              <span class="stag t-fs">CS fundamentals</span>
+            </div>
+          </div>
+          <div class="sblock sblock-accent-m1">
+            <div class="sblock-time"><span class="stime">8:00<br>8:30 PM</span></div>
+            <div class="sblock-body">
+              <div class="sblock-title">STAR story journal — 15 min</div>
+              <div class="sblock-desc">Write one STAR story from your work experience. Target: 1 new story every 2 days. By end of Month 1, you should have 10–12 stories banked and ready to tighten.</div>
+              <span class="stag t-beh">Behavioural</span>
+            </div>
+          </div>
+          <div class="sblock sblock-accent-m1">
+            <div class="sblock-time"><span class="stime">8:30<br>9:00 PM</span></div>
+            <div class="sblock-body">
+              <div class="sblock-title">Anki / flashcard revision</div>
+              <div class="sblock-desc">Review algorithm complexity cards, CS concept cards. 15–20 cards max. Keep sessions short and consistent — spaced repetition beats cramming.</div>
+              <span class="stag t-rest">Revision</span>
+            </div>
+          </div>
+        </div>
+        <div class="callout"><strong>Month 1 rule:</strong> No hard LeetCode until Week 4. Build pattern recognition on easy/medium first. Speed comes from pattern fluency, not raw effort.</div>
+      </div>
+
+      <div id="m1-we" class="week-pane">
+        <div class="sched">
+          <div class="sblock sblock-accent-m1">
+            <div class="sblock-time"><span class="stime">8:00<br>9:00</span></div>
+            <div class="sblock-body">
+              <div class="sblock-title">Weak area drill</div>
+              <div class="sblock-desc">Pick the 1 topic from the week you felt least confident in. Re-read the theory, then re-solve 2–3 problems from scratch without looking at previous solutions.</div>
+              <span class="stag t-dsa">DSA</span>
+            </div>
+          </div>
+          <div class="sblock sblock-accent-m1">
+            <div class="sblock-time"><span class="stime">9:00<br>11:00</span></div>
+            <div class="sblock-body">
+              <div class="sblock-title">LeetCode contest simulation</div>
+              <div class="sblock-desc">Pick any past weekly contest on LeetCode. Set a 90-min timer. Solve Q1 + Q2 + attempt Q3. Analyse your approach after — this trains real interview pacing better than random grinding.</div>
+              <span class="stag t-dsa">DSA</span>
+            </div>
+          </div>
+          <div class="sblock sblock-accent-m1">
+            <div class="sblock-time"><span class="stime">11:00<br>12:00</span></div>
+            <div class="sblock-body">
+              <div class="sblock-title">Deep CS study — implement it</div>
+              <div class="sblock-desc">Go hands-on: write complex SQL queries with window functions, or draw a TCP handshake from memory, or implement an LRU cache from scratch without references.</div>
+              <span class="stag t-fs">CS fundamentals</span>
+            </div>
+          </div>
+          <div class="sblock sblock-accent-m1">
+            <div class="sblock-time"><span class="stime">2:00<br>3:30 PM</span></div>
+            <div class="sblock-body">
+              <div class="sblock-title">Full stack revision — your own stack</div>
+              <div class="sblock-desc">React: virtual DOM, reconciliation, hooks internals. Node.js: event loop, streams, clustering. Write answers to 5 common interview questions out loud — not in your head.</div>
+              <span class="stag t-fs">Full stack</span>
+            </div>
+          </div>
+          <div class="sblock">
+            <div class="sblock-time"><span class="stime">3:30<br>4:30 PM</span></div>
+            <div class="sblock-body">
+              <div class="sblock-title">Week review + plan next week</div>
+              <div class="sblock-desc">Count problems solved. Identify 3 weak patterns. Write next week's daily targets. Update your STAR story bank. One day each weekend should have a completely problem-free afternoon.</div>
+              <span class="stag t-rest">Planning</span>
+            </div>
+          </div>
+        </div>
+        <div class="callout"><strong>Weekend rule:</strong> One full rest afternoon per week is not optional — it's strategic. Recovery prevents the burnout that kills Month 2.</div>
+      </div>
+
+      <div id="m1-w1" class="week-pane">
+        <div class="sched">
+          <div class="sblock sblock-accent-m1">
+            <div class="sblock-time"><span class="stime">Mon<br>Tue</span></div>
+            <div class="sblock-body">
+              <div class="sblock-title">Arrays + two pointers + sliding window</div>
+              <div class="sblock-desc">Two Sum, Best Time to Buy/Sell Stock, Container With Most Water, Trapping Rain Water, 3Sum, Minimum Size Subarray Sum. Master the sliding window template.</div>
+              <span class="stag t-dsa">Arrays</span>
+            </div>
+          </div>
+          <div class="sblock sblock-accent-m1">
+            <div class="sblock-time"><span class="stime">Wed<br>Thu</span></div>
+            <div class="sblock-body">
+              <div class="sblock-title">Strings + hashing</div>
+              <div class="sblock-desc">Valid Anagram, Group Anagrams, Longest Substring Without Repeat, Minimum Window Substring, Encode/Decode Strings. HashMap pattern deeply — this appears in 30% of interviews.</div>
+              <span class="stag t-dsa">Strings</span>
+            </div>
+          </div>
+          <div class="sblock sblock-accent-m1">
+            <div class="sblock-time"><span class="stime">Fri</span></div>
+            <div class="sblock-body">
+              <div class="sblock-title">Prefix sums + binary search</div>
+              <div class="sblock-desc">Range Sum Query, Product of Array Except Self, Search in Rotated Sorted Array, Find Minimum in Rotated Array, Search a 2D Matrix.</div>
+              <span class="stag t-dsa">Binary search</span>
+            </div>
+          </div>
+          <div class="sblock">
+            <div class="sblock-time"><span class="stime">Every<br>evening</span></div>
+            <div class="sblock-body">
+              <div class="sblock-title">OS fundamentals (Week 1 CS focus)</div>
+              <div class="sblock-desc">Process vs thread, context switching, mutex vs semaphore, deadlock conditions + prevention (Coffman conditions), virtual memory, paging, TLB.</div>
+              <span class="stag t-fs">OS</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="m1-w23" class="week-pane">
+        <div class="sched">
+          <div class="sblock sblock-accent-m1">
+            <div class="sblock-time"><span class="stime">Week 2<br>DSA</span></div>
+            <div class="sblock-body">
+              <div class="sblock-title">Stacks, queues, linked lists</div>
+              <div class="sblock-desc">Valid Parentheses, Min Stack, Daily Temperatures (monotonic stack pattern). Reverse Linked List, Detect Cycle (Floyd's), Merge Two Sorted Lists, Reorder List, LRU Cache.</div>
+              <span class="stag t-dsa">Stacks / Linked lists</span>
+            </div>
+          </div>
+          <div class="sblock sblock-accent-m1">
+            <div class="sblock-time"><span class="stime">Week 3<br>DSA</span></div>
+            <div class="sblock-body">
+              <div class="sblock-title">Trees + recursion + backtracking</div>
+              <div class="sblock-desc">All traversals (iterative + recursive), Max Depth, Same Tree, LCA of BST, Level Order BFS. Backtracking: Subsets, Permutations, Combination Sum, Word Search.</div>
+              <span class="stag t-dsa">Trees</span>
+            </div>
+          </div>
+          <div class="sblock">
+            <div class="sblock-time"><span class="stime">Week 2<br>CS</span></div>
+            <div class="sblock-body">
+              <div class="sblock-title">Networks deep dive</div>
+              <div class="sblock-desc">HTTP vs HTTPS, HTTP/2 multiplexing, TCP 3-way handshake, UDP differences, DNS resolution flow, CDN mechanics, REST vs RPC, WebSockets, CORS.</div>
+              <span class="stag t-fs">Networks</span>
+            </div>
+          </div>
+          <div class="sblock">
+            <div class="sblock-time"><span class="stime">Week 3<br>CS</span></div>
+            <div class="sblock-body">
+              <div class="sblock-title">DBMS + SQL mastery</div>
+              <div class="sblock-desc">B-tree indexes, query execution plan, ACID, isolation levels (read committed, repeatable read, serializable), normalization (1NF–3NF). SQL: window functions, CTEs, complex joins, EXPLAIN.</div>
+              <span class="stag t-fs">DBMS + SQL</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="m1-w4" class="week-pane">
+        <div class="sched">
+          <div class="sblock sblock-accent-m1">
+            <div class="sblock-time"><span class="stime">Mon<br>Wed</span></div>
+            <div class="sblock-body">
+              <div class="sblock-title">Heaps + tries</div>
+              <div class="sblock-desc">Top K Frequent Elements, Find Median from Data Stream, Task Scheduler, Kth Largest Element. Implement Trie from scratch, Word Search II, Design Add and Search Words.</div>
+              <span class="stag t-dsa">Heaps / Tries</span>
+            </div>
+          </div>
+          <div class="sblock sblock-accent-m1">
+            <div class="sblock-time"><span class="stime">Thu<br>Fri</span></div>
+            <div class="sblock-body">
+              <div class="sblock-title">Month 1 mock test</div>
+              <div class="sblock-desc">2-hour timed session: 4 problems (2 medium + 1 hard + 1 medium). Simulate real conditions — no hints, write clean code in IDE, explain your approach aloud to yourself.</div>
+              <span class="stag t-mock">Mock</span>
+            </div>
+          </div>
+          <div class="sblock">
+            <div class="sblock-time"><span class="stime">Evenings</span></div>
+            <div class="sblock-body">
+              <div class="sblock-title">Full stack interview prep — out loud</div>
+              <div class="sblock-desc">Answer these out loud: React reconciliation, useEffect cleanup, Node.js streams, JWT vs session auth, REST pagination strategies, DB connection pooling, React rendering optimization.</div>
+              <span class="stag t-fs">Full stack</span>
+            </div>
+          </div>
+        </div>
+        <div class="callout"><strong>End of Month 1 checkpoint:</strong> 80–100 LC solved, 10+ STAR stories written, solid OS/Networks/DBMS notes in your own words, first timed mock completed. You're ready for Month 2.</div>
+      </div>
+    </div>
+
+    <!-- MONTH 2 -->
+    <div id="m2" class="phase-pane">
+      <div class="phase-header">
+        <div>
+          <div class="phase-title">Deep dive — graphs, DP & system design</div>
+          <div class="phase-subtitle">Weeks 5–8. The hardest month. Ramp to 5 hrs/day. Push through it — this is where most candidates separate themselves.</div>
+        </div>
+        <div class="phase-metrics">
+          <div class="pmet"><div class="pmet-val" style="color:var(--m2)">5hr</div><div class="pmet-lbl">Weekday</div></div>
+          <div class="pmet"><div class="pmet-val" style="color:var(--m2)">7hr</div><div class="pmet-lbl">Weekend</div></div>
+          <div class="pmet"><div class="pmet-val" style="color:var(--m2)">+80</div><div class="pmet-lbl">More LC</div></div>
+          <div class="pmet"><div class="pmet-val" style="color:var(--m2)">6+</div><div class="pmet-lbl">Systems</div></div>
+        </div>
+      </div>
+
+      <div class="week-tabs">
+        <button class="wtab active" onclick="showWeek('m2','wd')">Weekday schedule</button>
+        <button class="wtab" onclick="showWeek('m2','we')">Weekend schedule</button>
+        <button class="wtab" onclick="showWeek('m2','w56')">Weeks 5–6 (Graphs + DP)</button>
+        <button class="wtab" onclick="showWeek('m2','w78')">Weeks 7–8 (System design)</button>
+      </div>
+
+      <div id="m2-wd" class="week-pane active">
+        <div class="sched">
+          <div class="sblock sblock-accent-m2">
+            <div class="sblock-time"><span class="stime">6:00<br>6:30</span></div>
+            <div class="sblock-body">
+              <div class="sblock-title">Review + cold open</div>
+              <div class="sblock-desc">Re-trace one graph or DP problem from last week — no code, just the algorithm in your head. Then open today's first problem with zero warmup.</div>
+              <span class="stag t-dsa">DSA</span>
+            </div>
+          </div>
+          <div class="sblock sblock-accent-m2">
+            <div class="sblock-time"><span class="stime">6:30<br>8:00</span></div>
+            <div class="sblock-body">
+              <div class="sblock-title">LeetCode — 2 problems (medium + hard)</div>
+              <div class="sblock-desc">1 medium graph/DP + 1 hard. Time-box hard problems at 35 min. After each, study the optimal solution deeply — understand state transitions or the graph traversal choice, not just the code.</div>
+              <span class="stag t-dsa">DSA</span>
+            </div>
+          </div>
+          <div class="sblock">
+            <div class="sblock-time"><span class="stime">Work<br>hours</span></div>
+            <div class="sblock-body">
+              <div class="sblock-title">Job + mine engineering decisions</div>
+              <div class="sblock-desc">Actively note: scaling challenges you tackled, architectural choices you debated, team conflicts you navigated. Aim for 1 new strong STAR story per week from real events.</div>
+              <span class="stag t-rest">Work</span>
+            </div>
+          </div>
+          <div class="sblock sblock-accent-m2">
+            <div class="sblock-time"><span class="stime">7:00<br>8:00 PM</span></div>
+            <div class="sblock-body">
+              <div class="sblock-title">System design — study or practice</div>
+              <div class="sblock-desc"><strong>Weeks 5–6:</strong> Study Grokking SD / System Design Primer. Learn: consistent hashing, sharding, read replicas, message queues, rate limiting. <strong>Weeks 7–8:</strong> Design one full system per session (45 min).</div>
+              <span class="stag t-sys">System design</span>
+            </div>
+          </div>
+          <div class="sblock sblock-accent-m2">
+            <div class="sblock-time"><span class="stime">8:00<br>8:45 PM</span></div>
+            <div class="sblock-body">
+              <div class="sblock-title">Full stack depth or LLD — alternate daily</div>
+              <div class="sblock-desc"><strong>Full stack days:</strong> React fiber, Node.js cluster, Redis patterns, GraphQL resolver chain, micro-frontends, OWASP top 10. <strong>LLD days:</strong> Design parking lot, elevator system, chess, rate limiter.</div>
+              <span class="stag t-fs">Full stack / LLD</span>
+            </div>
+          </div>
+          <div class="sblock sblock-accent-m2">
+            <div class="sblock-time"><span class="stime">8:45<br>9:00 PM</span></div>
+            <div class="sblock-body">
+              <div class="sblock-title">STAR story — speak it out loud</div>
+              <div class="sblock-desc">Pick one existing story and tighten it. Target: 90 seconds when spoken. Say it aloud — not in your head. Record on your phone and listen back once.</div>
+              <span class="stag t-beh">Behavioural</span>
+            </div>
+          </div>
+        </div>
+        <div class="callout"><strong>Month 2 rule:</strong> Every system design session must end with writing down 3 tradeoffs you made. Interviewers care about WHY you chose an approach — that's what separates a hire from a no-hire at this level.</div>
+      </div>
+
+      <div id="m2-we" class="week-pane">
+        <div class="sched">
+          <div class="sblock sblock-accent-m2">
+            <div class="sblock-time"><span class="stime">8:00<br>10:30</span></div>
+            <div class="sblock-body">
+              <div class="sblock-title">Full mock system design (45 min) + debrief</div>
+              <div class="sblock-desc">Pick a system (e.g. design Instagram). Whiteboard the full design in 45 min — requirements, capacity estimates, API design, data schema, HLD diagram, bottlenecks. Then spend 45 min comparing with reference solution.</div>
+              <span class="stag t-sys">System design mock</span>
+            </div>
+          </div>
+          <div class="sblock sblock-accent-m2">
+            <div class="sblock-time"><span class="stime">10:30<br>12:30</span></div>
+            <div class="sblock-body">
+              <div class="sblock-title">3 hard LeetCode problems</div>
+              <div class="sblock-desc">35 min per problem. If unsolved, move on — don't stall. After all 3: study each optimal solution in full. Identify the pattern. Add a one-line pattern note to your cheat sheet.</div>
+              <span class="stag t-dsa">DSA hard</span>
+            </div>
+          </div>
+          <div class="sblock sblock-accent-m2">
+            <div class="sblock-time"><span class="stime">2:00<br>3:30 PM</span></div>
+            <div class="sblock-body">
+              <div class="sblock-title">Full stack mock Q&A — recorded</div>
+              <div class="sblock-desc">Set a 90-min timer. Answer 8–10 full stack interview questions aloud, treating it as a real interview. Record yourself. Topics: performance, security, auth, testing, DB design, system tradeoffs.</div>
+              <span class="stag t-fs">Full stack</span>
+            </div>
+          </div>
+          <div class="sblock">
+            <div class="sblock-time"><span class="stime">3:30<br>4:30 PM</span></div>
+            <div class="sblock-body">
+              <div class="sblock-title">Week review + target company research</div>
+              <div class="sblock-desc">LC count, systems designed, STAR bank update. Read one engineering blog post from your target company (Meta, Google, Uber, Amazon engineering blogs).</div>
+              <span class="stag t-rest">Review</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="m2-w56" class="week-pane">
+        <div class="sched">
+          <div class="sblock sblock-accent-m2">
+            <div class="sblock-time"><span class="stime">Week 5<br>Graphs</span></div>
+            <div class="sblock-body">
+              <div class="sblock-title">Graph patterns — all the essentials</div>
+              <div class="sblock-desc">Number of Islands (BFS/DFS), Clone Graph, Course Schedule I&II (topological sort), Pacific Atlantic Water Flow, Number of Connected Components, Redundant Connection (union-find), Alien Dictionary, Word Ladder.</div>
+              <span class="stag t-dsa">Graphs</span>
+            </div>
+          </div>
+          <div class="sblock sblock-accent-m2">
+            <div class="sblock-time"><span class="stime">Week 6<br>DP</span></div>
+            <div class="sblock-body">
+              <div class="sblock-title">Dynamic programming — build up from 1D</div>
+              <div class="sblock-desc">Climbing Stairs → House Robber I/II → Coin Change → Longest Common Subsequence → Edit Distance → Word Break → Burst Balloons → Regular Expression Matching. Learn the state machine approach systematically.</div>
+              <span class="stag t-dsa">DP</span>
+            </div>
+          </div>
+          <div class="sblock">
+            <div class="sblock-time"><span class="stime">Evenings<br>W5–6</span></div>
+            <div class="sblock-body">
+              <div class="sblock-title">System design building blocks</div>
+              <div class="sblock-desc">Study each daily: CAP theorem, consistent hashing, database sharding strategies, read replicas, message queues (Kafka vs RabbitMQ), caching patterns (write-through, write-back, cache-aside), rate limiting (token bucket, leaky bucket).</div>
+              <span class="stag t-sys">System design</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="m2-w78" class="week-pane">
+        <div class="sched">
+          <div class="sblock sblock-accent-m2">
+            <div class="sblock-time"><span class="stime">Week 7<br>HLD</span></div>
+            <div class="sblock-body">
+              <div class="sblock-title">Design one system per day</div>
+              <div class="sblock-desc">Mon: URL shortener. Tue: Twitter news feed. Wed: WhatsApp. Thu: Uber backend. Fri: YouTube. Follow the framework each time: requirements → capacity estimates → API → data schema → HLD → bottlenecks → tradeoffs.</div>
+              <span class="stag t-sys">HLD practice</span>
+            </div>
+          </div>
+          <div class="sblock sblock-accent-m2">
+            <div class="sblock-time"><span class="stime">Week 8<br>LLD</span></div>
+            <div class="sblock-body">
+              <div class="sblock-title">LLD + design patterns implementation</div>
+              <div class="sblock-desc">Implement from scratch: LRU Cache, Rate Limiter, Pub-Sub system. Patterns: Observer, Strategy, Singleton, Factory. Full stack: scalable React architecture, Node.js microservice with JWT auth, GraphQL schema for a social app.</div>
+              <span class="stag t-fs">LLD / Design patterns</span>
+            </div>
+          </div>
+          <div class="sblock">
+            <div class="sblock-time"><span class="stime">Evenings<br>W7–8</span></div>
+            <div class="sblock-body">
+              <div class="sblock-title">Company-specific research</div>
+              <div class="sblock-desc">Read engineering blogs from target companies. Glassdoor + LeetCode Discuss: find the last 3 months of interview reports for your exact target role + company. Note recurring question patterns.</div>
+              <span class="stag t-beh">Research</span>
+            </div>
+          </div>
+        </div>
+        <div class="callout"><strong>End of Month 2 checkpoint:</strong> 180+ total LC problems, 10+ systems designed with written tradeoffs, 15 polished STAR stories, strong pattern notes. <strong>Start applying to companies this week</strong> — don't wait for Month 3. Interview pipelines take 3–5 weeks.</div>
+      </div>
+    </div>
+
+    <!-- MONTH 3 -->
+    <div id="m3" class="phase-pane">
+      <div class="phase-header">
+        <div>
+          <div class="phase-title">Convert knowledge into performance</div>
+          <div class="phase-subtitle">Weeks 9–12. Stop learning new things. Convert 2 months of preparation into interview-room execution. Mocks, weak drills, real interviews.</div>
+        </div>
+        <div class="phase-metrics">
+          <div class="pmet"><div class="pmet-val" style="color:var(--m3)">4hr</div><div class="pmet-lbl">Weekday</div></div>
+          <div class="pmet"><div class="pmet-val" style="color:var(--m3)">5hr</div><div class="pmet-lbl">Weekend</div></div>
+          <div class="pmet"><div class="pmet-val" style="color:var(--m3)">3×</div><div class="pmet-lbl">Mocks/week</div></div>
+          <div class="pmet"><div class="pmet-val" style="color:var(--m3)">250+</div><div class="pmet-lbl">Total LC</div></div>
+        </div>
+      </div>
+
+      <div class="week-tabs">
+        <button class="wtab active" onclick="showWeek('m3','wd')">Weekday schedule</button>
+        <button class="wtab" onclick="showWeek('m3','we')">Weekend schedule</button>
+        <button class="wtab" onclick="showWeek('m3','w910')">Weeks 9–10</button>
+        <button class="wtab" onclick="showWeek('m3','w1112')">Weeks 11–12</button>
+      </div>
+
+      <div id="m3-wd" class="week-pane active">
+        <div class="sched">
+          <div class="sblock sblock-accent-m3">
+            <div class="sblock-time"><span class="stime">6:00<br>7:30</span></div>
+            <div class="sblock-body">
+              <div class="sblock-title">Company-tagged LeetCode</div>
+              <div class="sblock-desc">Solve problems from your target company's tag on LeetCode — focus on the last 6 months of reported questions. 1–2 problems max. Write clean, commented, production-quality solutions. Quality over quantity now.</div>
+              <span class="stag t-dsa">DSA</span>
+            </div>
+          </div>
+          <div class="sblock">
+            <div class="sblock-time"><span class="stime">Work<br>hours</span></div>
+            <div class="sblock-body">
+              <div class="sblock-title">Apply + schedule interviews</div>
+              <div class="sblock-desc">Send 2–3 targeted applications per day. Follow up on pending ones. Schedule lower-priority companies for Weeks 10–11 (practice runs), dream companies for Week 12.</div>
+              <span class="stag t-rest">Applications</span>
+            </div>
+          </div>
+          <div class="sblock sblock-accent-m3">
+            <div class="sblock-time"><span class="stime">7:00<br>7:45 PM</span></div>
+            <div class="sblock-body">
+              <div class="sblock-title">System design rapid-fire review</div>
+              <div class="sblock-desc">Draw one previously studied system from memory in 10 min — no notes. Then check your reference for gaps. Rotate through all 10 systems you've studied across the month.</div>
+              <span class="stag t-sys">System design</span>
+            </div>
+          </div>
+          <div class="sblock sblock-accent-m3">
+            <div class="sblock-time"><span class="stime">7:45<br>9:00 PM</span></div>
+            <div class="sblock-body">
+              <div class="sblock-title">Mock interview — 3× per week (Mon/Wed/Fri)</div>
+              <div class="sblock-desc">45-min Pramp session or peer mock. Camera on, timed, think aloud the entire time. Debrief for 15 min immediately after. Log: what went wrong, what the interviewer would have thought, what you'd do differently.</div>
+              <span class="stag t-mock">Mock interview</span>
+            </div>
+          </div>
+          <div class="sblock sblock-accent-m3">
+            <div class="sblock-time"><span class="stime">Tue / Thu<br>evenings</span></div>
+            <div class="sblock-body">
+              <div class="sblock-title">Behavioural rehearsal — spoken, not written</div>
+              <div class="sblock-desc">Speak 3 STAR stories end-to-end targeting different leadership principles each session. Record your voice, listen back for clarity and timing. Target: 90 seconds each, no filler words, concrete metrics.</div>
+              <span class="stag t-beh">Behavioural</span>
+            </div>
+          </div>
+        </div>
+        <div class="callout"><strong>Month 3 mindset shift:</strong> You know enough. Stop acquiring knowledge, start performing under pressure. Every practice session should feel like a real interview round — camera on, timer running, thinking out loud.</div>
+      </div>
+
+      <div id="m3-we" class="week-pane">
+        <div class="sched">
+          <div class="sblock sblock-accent-m3">
+            <div class="sblock-time"><span class="stime">9:00<br>11:00</span></div>
+            <div class="sblock-body">
+              <div class="sblock-title">Full interview day simulation</div>
+              <div class="sblock-desc">Simulate back-to-back rounds: 45-min coding mock + 15-min break + 45-min system design mock. This builds stamina for real interview days where you'll face 4–5 rounds consecutively.</div>
+              <span class="stag t-mock">Full simulation</span>
+            </div>
+          </div>
+          <div class="sblock sblock-accent-m3">
+            <div class="sblock-time"><span class="stime">11:00<br>12:00</span></div>
+            <div class="sblock-body">
+              <div class="sblock-title">Surgical debrief + targeted drill</div>
+              <div class="sblock-desc">Identify exactly what went wrong in the simulation — not generally, but specifically. Spend 1 hr drilling that exact gap. Don't do random problems; fix the specific weakness.</div>
+              <span class="stag t-dsa">Targeted fix</span>
+            </div>
+          </div>
+          <div class="sblock">
+            <div class="sblock-time"><span class="stime">2:00<br>3:30 PM</span></div>
+            <div class="sblock-body">
+              <div class="sblock-title">Resume + LinkedIn polish + salary research</div>
+              <div class="sblock-desc">Quantify every bullet on your resume (impact in %, time saved, scale handled). LinkedIn: headline, about section, skills endorsements. Research levels.fyi for your target company + level. Never accept first offer.</div>
+              <span class="stag t-rest">Career</span>
+            </div>
+          </div>
+          <div class="sblock">
+            <div class="sblock-time"><span class="stime">3:00 PM<br>Sunday</span></div>
+            <div class="sblock-body">
+              <div class="sblock-title">No prep — active recovery</div>
+              <div class="sblock-desc">Sunday afternoon/evening: zero interview prep. Walk, cook, sleep. Peak performance on interview day requires genuine rest in the days before. This isn't optional.</div>
+              <span class="stag t-rest">Recovery</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="m3-w910" class="week-pane">
+        <div class="sched">
+          <div class="sblock sblock-accent-m3">
+            <div class="sblock-time"><span class="stime">Weeks<br>9–10</span></div>
+            <div class="sblock-body">
+              <div class="sblock-title">Weak area sprint — 3 days each</div>
+              <div class="sblock-desc">From Months 1–2, identify your 3 weakest patterns. Spend 3 days drilling each. Most common weak areas at this stage: DP state transitions, Dijkstra/Bellman-Ford, interval scheduling, complex tree recursion.</div>
+              <span class="stag t-dsa">DSA</span>
+            </div>
+          </div>
+          <div class="sblock sblock-accent-m3">
+            <div class="sblock-time"><span class="stime">Hard<br>problems</span></div>
+            <div class="sblock-body">
+              <div class="sblock-title">Company-tagged hard problems</div>
+              <div class="sblock-desc"><strong>Google:</strong> Hard graph + string problems. <strong>Amazon:</strong> DP + design-heavy (OOP). <strong>Microsoft:</strong> Tree + OS-related. <strong>Meta:</strong> Array manipulation + recursion. Do 1 hard per day from your primary target company tag.</div>
+              <span class="stag t-dsa">DSA hard</span>
+            </div>
+          </div>
+          <div class="sblock sblock-accent-m3">
+            <div class="sblock-time"><span class="stime">Evenings</span></div>
+            <div class="sblock-body">
+              <div class="sblock-title">Interviewing.io anonymous sessions</div>
+              <div class="sblock-desc">Book 2 anonymous mock sessions on interviewing.io. Get feedback from real senior engineers at FAANG companies. The feedback quality here is significantly higher than Pramp for experienced engineers — worth every rupee.</div>
+              <span class="stag t-mock">Mock</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="m3-w1112" class="week-pane">
+        <div class="sched">
+          <div class="sblock sblock-accent-m3">
+            <div class="sblock-time"><span class="stime">Week 11</span></div>
+            <div class="sblock-body">
+              <div class="sblock-title">Real interviews — lower priority companies first</div>
+              <div class="sblock-desc">Schedule your 2nd/3rd-tier targets first. Every real interview is high-quality data — debrief within 1 hour of finishing. Note every single question asked. Patterns will emerge across companies.</div>
+              <span class="stag t-mock">Real interviews</span>
+            </div>
+          </div>
+          <div class="sblock sblock-accent-m3">
+            <div class="sblock-time"><span class="stime">Week 12</span></div>
+            <div class="sblock-body">
+              <div class="sblock-title">Dream company interviews</div>
+              <div class="sblock-desc">Reduce LC to 1 easy problem per day — just to stay warm. Main focus: sleep, calm, confidence. Interview day routine: light warm-up, review 3 STAR stories, solve 1 medium LC, eat properly.</div>
+              <span class="stag t-mock">Peak interviews</span>
+            </div>
+          </div>
+          <div class="sblock">
+            <div class="sblock-time"><span class="stime">Post<br>offer</span></div>
+            <div class="sblock-body">
+              <div class="sblock-title">Salary negotiation — always counter</div>
+              <div class="sblock-desc">Never accept the first offer. Research levels.fyi for exact company + level. Counter with market data, not feelings. A 10-minute negotiation call can mean ₹5–20L/year difference. With 4+ years experience, you have leverage.</div>
+              <span class="stag t-rest">Negotiation</span>
+            </div>
+          </div>
+        </div>
+        <div class="callout"><strong>Final week rule:</strong> No cramming the night before. Light review, early sleep, confident walk-in. You've done the work across 90 days — now trust it completely.</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- RESOURCES -->
+<div id="resources" class="section-wrap">
+  <div class="resources-section">
+    <div class="section-label">// Curated resources</div>
+    <div class="resource-grid">
+      <div class="res-row">
+        <div class="res-cat" style="color:var(--tag-dsa)">DSA</div>
+        <div class="res-body">
+          <div class="res-title">LeetCode — primary practice platform</div>
+          <div class="res-sub">Focus on Top Interview 150 + company-tagged problems (Amazon, Google, Microsoft). Filter by your target company and sort by frequency for maximum ROI.</div>
+        </div>
+      </div>
+      <div class="res-row">
+        <div class="res-cat" style="color:var(--tag-dsa)">DSA</div>
+        <div class="res-body">
+          <div class="res-title">Neetcode.io — free structured roadmap</div>
+          <div class="res-sub">Every pattern with video explanations. The roadmap view is the single best way to learn patterns in the right order. Completely free.</div>
+        </div>
+      </div>
+      <div class="res-row">
+        <div class="res-cat" style="color:var(--tag-dsa)">DSA</div>
+        <div class="res-body">
+          <div class="res-title">Blind 75 + Grind 169</div>
+          <div class="res-sub">Curated problem sets trusted by thousands of FAANG hires. Blind 75 for breadth; Grind 169 for depth. Do both before Month 3.</div>
+        </div>
+      </div>
+      <div class="res-row">
+        <div class="res-cat" style="color:var(--tag-sys)">System</div>
+        <div class="res-body">
+          <div class="res-title">Grokking System Design (Educative.io)</div>
+          <div class="res-sub">Industry-standard course. Covers every classic FAANG design question with structured frameworks. Worth the subscription for Month 2.</div>
+        </div>
+      </div>
+      <div class="res-row">
+        <div class="res-cat" style="color:var(--tag-sys)">System</div>
+        <div class="res-body">
+          <div class="res-title">System Design Primer — GitHub</div>
+          <div class="res-sub">Free and comprehensive. Scalability, databases, caching, message queues — everything. Bookmark this and read one section per day in Month 2.</div>
+        </div>
+      </div>
+      <div class="res-row">
+        <div class="res-cat" style="color:var(--tag-sys)">System</div>
+        <div class="res-body">
+          <div class="res-title">Alex Xu — System Design Interview Vol. 1 & 2</div>
+          <div class="res-sub">Best book for HLD. Practical, structured, FAANG-focused. Vol. 1 for fundamentals, Vol. 2 for advanced systems like Google Maps, distributed message queues.</div>
+        </div>
+      </div>
+      <div class="res-row">
+        <div class="res-cat" style="color:var(--tag-beh)">Behavioural</div>
+        <div class="res-body">
+          <div class="res-title">Amazon's 16 Leadership Principles guide</div>
+          <div class="res-sub">Even non-Amazon companies test variations of these. Master all 16 with one strong STAR story per principle minimum. Google and Meta also respect this framework.</div>
+        </div>
+      </div>
+      <div class="res-row">
+        <div class="res-cat" style="color:var(--tag-mock)">Practice</div>
+        <div class="res-body">
+          <div class="res-title">Pramp.com + Interviewing.io</div>
+          <div class="res-sub">Pramp for free peer mocks (great for volume). Interviewing.io for paid anonymous sessions with real FAANG engineers (great for quality feedback in Month 3).</div>
+        </div>
+      </div>
+      <div class="res-row">
+        <div class="res-cat" style="color:var(--tag-mock)">Research</div>
+        <div class="res-body">
+          <div class="res-title">Glassdoor + LeetCode Discuss + levels.fyi</div>
+          <div class="res-sub">Real interview questions reported by candidates at your target companies. Levels.fyi for salary benchmarking and negotiation data. Check all three before every interview.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TIPS -->
+<div id="tips" class="section-wrap">
+  <div class="tips-section">
+    <div class="section-label">// Pro tips for experienced engineers</div>
+    <div class="tips-grid">
+      <div class="tip-card">
+        <div class="tip-num">01</div>
+        <div class="tip-title">Think out loud — always</div>
+        <div class="tip-body">Interviewers grade your communication as much as your code. Narrate your thought process, edge cases, and tradeoffs even when you're completely stuck. Silence is the worst answer.</div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-num">02</div>
+        <div class="tip-title">Patterns over problems</div>
+        <div class="tip-body">Don't memorise 500 solutions. Learn 15–20 core patterns (sliding window, BFS/DFS, two pointers, DP state machine) and you can solve most problems you've never seen before.</div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-num">03</div>
+        <div class="tip-title">Your 4+ years is an edge — use it</div>
+        <div class="tip-body">You have real production war stories. In system design and behavioural rounds, your experience scaling actual systems beats theoretical knowledge every time. Speak from what you've built.</div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-num">04</div>
+        <div class="tip-title">Time-box every problem</div>
+        <div class="tip-body">Max 25 minutes on any LeetCode problem. If stuck, read hints, then the solution. Understanding patterns matters more than reaching solutions independently — that's not the real interview skill.</div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-num">05</div>
+        <div class="tip-title">System design framework — always</div>
+        <div class="tip-body">Requirements → Estimates → API design → Data model → High-level design → Deep dive → Tradeoffs. Never skip straight to drawing boxes. Clarifying requirements alone sets you apart from 60% of candidates.</div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-num">06</div>
+        <div class="tip-title">Apply early, not at Week 12</div>
+        <div class="tip-body">Start applying at Week 8–9. Interview timelines take 3–6 weeks from application to offer. You want your best offers arriving after your peak preparation, not before it.</div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-num">07</div>
+        <div class="tip-title">Debrief every mock within 1 hour</div>
+        <div class="tip-body">The pattern of your mistakes is more valuable than any problem set. Track what went wrong in a doc. After 10 mocks, you'll see your actual weak areas — not the ones you assumed.</div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-num">08</div>
+        <div class="tip-title">Never accept the first offer</div>
+        <div class="tip-body">With 4+ years of experience, you have strong leverage. Counter every offer with levels.fyi data. At senior levels in India, ₹5–20L/year can often be reclaimed in a single 10-minute call.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TRACKER -->
+<div id="tracker" class="section-wrap">
+  <div class="tracker">
+    <div class="tracker-header">
+      <div class="tracker-title">90-day progress tracker</div>
+      <div class="tracker-controls">
+        <button class="tctrl" onclick="resetTracker()">Reset</button>
+        <button class="tctrl primary" onclick="markCurrentWeek()">Mark current week done</button>
+      </div>
+    </div>
+    <div class="weeks-grid" id="weekGrid"></div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-title">You have everything you need.</div>
+    <div class="footer-sub">90 days. Consistent effort. Trust the process.</div>
+    <div class="footer-tags">
+      <span class="footer-tag" style="background:var(--tag-dsa-bg);color:var(--tag-dsa)">DSA</span>
+      <span class="footer-tag" style="background:var(--tag-sys-bg);color:var(--tag-sys)">System Design</span>
+      <span class="footer-tag" style="background:var(--tag-fs-bg);color:var(--tag-fs)">Full Stack</span>
+      <span class="footer-tag" style="background:var(--tag-beh-bg);color:var(--tag-beh)">Behavioural</span>
+      <span class="footer-tag" style="background:var(--tag-mock-bg);color:var(--tag-mock)">Mock Interviews</span>
+    </div>
+    <div class="footer-note">Generated with Claude &middot; Good luck — you've got this.</div>
+  </div>
+</footer>
+
+<script>
+  function showPhase(id) {
+    document.querySelectorAll('.phase-pane').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.ptab').forEach(b => b.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    const map = {m1:0,m2:1,m3:2};
+    document.querySelectorAll('.ptab')[map[id]].classList.add('active');
+  }
+
+  function showWeek(phase, id) {
+    const pane = document.getElementById(phase);
+    pane.querySelectorAll('.week-pane').forEach(p => p.classList.remove('active'));
+    pane.querySelectorAll('.wtab').forEach(b => b.classList.remove('active'));
+    document.getElementById(phase + '-' + id).classList.add('active');
+    const maps = {
+      m1: ['wd','we','w1','w23','w4'],
+      m2: ['wd','we','w56','w78'],
+      m3: ['wd','we','w910','w1112']
+    };
+    const idx = maps[phase].indexOf(id);
+    pane.querySelectorAll('.wtab')[idx].classList.add('active');
+  }
+
+  const weeks = [
+    {num:'W1',title:'Arrays + Strings',sub:'Two pointers, hashing, sliding window',phase:'m1'},
+    {num:'W2',title:'Stacks + Linked Lists',sub:'Monotonic stack, fast/slow pointer',phase:'m1'},
+    {num:'W3',title:'Trees + Recursion',sub:'BFS/DFS, backtracking, BST',phase:'m1'},
+    {num:'W4',title:'Heaps + Tries + Mock',sub:'Priority queues, first timed test',phase:'m1'},
+    {num:'W5',title:'Graphs',sub:'BFS/DFS, union-find, topological sort',phase:'m2'},
+    {num:'W6',title:'Dynamic Programming',sub:'1D/2D DP, state machine patterns',phase:'m2'},
+    {num:'W7',title:'System Design HLD',sub:'URL shortener, Twitter, WhatsApp...',phase:'m2'},
+    {num:'W8',title:'LLD + Apply Now',sub:'Design patterns, start applications',phase:'m2'},
+    {num:'W9',title:'Weak Area Sprint',sub:'Drill your specific gaps hard',phase:'m3'},
+    {num:'W10',title:'Hard + Company Tags',sub:'Target company problem sets',phase:'m3'},
+    {num:'W11',title:'Real Interviews',sub:'Lower-priority companies first',phase:'m3'},
+    {num:'W12',title:'Dream Companies',sub:'Peak form, light prep, trust it',phase:'m3'},
+  ];
+
+  const phaseColors = {m1:'var(--m1)',m2:'var(--m2)',m3:'var(--m3)'};
+
+  function loadTracker() {
+    const done = JSON.parse(localStorage.getItem('faang_done') || '[]');
+    const grid = document.getElementById('weekGrid');
+    grid.innerHTML = '';
+    weeks.forEach((w, i) => {
+      const isDone = done.includes(i);
+      const isCurrent = !isDone && done.length === i;
+      const card = document.createElement('div');
+      card.className = 'week-card' + (isDone ? ' done' : '') + (isCurrent ? ' current' : '');
+      card.onclick = () => toggleWeek(i);
+      card.innerHTML = `
+        <div class="wc-phase" style="background:${phaseColors[w.phase]}"></div>
+        <div class="wc-top">
+          <span class="wc-num">${w.num}</span>
+          <div class="wc-check">${isDone ? '&#10003;' : ''}</div>
+        </div>
+        <div class="wc-title">${w.title}</div>
+        <div class="wc-sub">${w.sub}</div>
+      `;
+      grid.appendChild(card);
+    });
+  }
+
+  function toggleWeek(i) {
+    let done = JSON.parse(localStorage.getItem('faang_done') || '[]');
+    if (done.includes(i)) { done = done.filter(x => x !== i); }
+    else { done.push(i); }
+    localStorage.setItem('faang_done', JSON.stringify(done));
+    loadTracker();
+  }
+
+  function markCurrentWeek() {
+    let done = JSON.parse(localStorage.getItem('faang_done') || '[]');
+    if (done.length < 12) { done.push(done.length); }
+    localStorage.setItem('faang_done', JSON.stringify(done));
+    loadTracker();
+  }
+
+  function resetTracker() {
+    localStorage.removeItem('faang_done');
+    loadTracker();
+  }
+
+  loadTracker();
+</script>
+</body>
+</html>
